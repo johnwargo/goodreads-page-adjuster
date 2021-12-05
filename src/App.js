@@ -94,7 +94,7 @@ class App extends React.Component {
         <Navbar bg="light">
           <Navbar.Brand>
             <div className="head-text">
-              Goodreads Page Converter
+              Goodreads Page Adjuster
             </div>
           </Navbar.Brand>
         </Navbar>
