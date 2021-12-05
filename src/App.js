@@ -63,7 +63,7 @@ class App extends React.Component {
         adjustedPage = Math.floor(this.state.currentPage * theRatio);
       }
       this.setState({ adjustedPage });
-    } 
+    }
     // else {
     //   console.log("Missing required page values");
     // }
@@ -72,11 +72,12 @@ class App extends React.Component {
   handleChange(event) {
     // console.log(`Input field value changed (${event.target.id} => ${event.target.value})`);
     // write the current field value to state
-    this.setState({ [event.target.id]: parseInt(event.target.value) },
+    let newVal = Math.abs(parseInt(event.target.value));
+    this.setState({ [event.target.id]: newVal },
       () => {
         // When saving state completes,
         // write the updated value to local storage
-        localStorage.setItem([event.target.id], parseInt(event.target.value));
+        localStorage.setItem([event.target.id], newVal);
         // then update the page number
         this.calculateAdjustedPage();
       });
@@ -107,6 +108,7 @@ class App extends React.Component {
               <Form.Control
                 type="number"
                 defaultValue={this.state.currentPage}
+                value={this.state.currentPage}
                 onChange={this.handleChange}
               />
             </Form.Group>
@@ -116,6 +118,7 @@ class App extends React.Component {
               <Form.Control
                 type="number"
                 defaultValue={this.state.actualPageCount}
+                value={this.state.actualPageCount}
                 onChange={this.handleChange}
               />
             </Form.Group>
@@ -125,6 +128,7 @@ class App extends React.Component {
               <Form.Control
                 type="number"
                 defaultValue={this.state.goodreadsPageCount}
+                value={this.state.goodreadsPageCount}
                 onChange={this.handleChange}
               />
             </Form.Group>
