@@ -8,8 +8,8 @@ import './App.css';
 
 // Required features
 // TODO: Copy calculated value to clipboard
+// TODO: Check that the current page isn't greater than the actual page count
 // TODO: Update page content
-// TODO: Add favicon
 // TODO: Make installable
 // TODO: Update readme.md with complete story and screen shot(s)
 // TODO: Make repo public
@@ -107,7 +107,7 @@ class App extends React.Component {
               <Form.Label>Current Page</Form.Label>
               <Form.Control
                 type="number"
-                defaultValue={this.state.currentPage}
+                // defaultValue={this.state.currentPage}
                 value={this.state.currentPage}
                 onChange={this.handleChange}
               />
@@ -117,7 +117,7 @@ class App extends React.Component {
               <Form.Label>Book (actual) Page Count</Form.Label>
               <Form.Control
                 type="number"
-                defaultValue={this.state.actualPageCount}
+                // defaultValue={this.state.actualPageCount}
                 value={this.state.actualPageCount}
                 onChange={this.handleChange}
               />
@@ -127,7 +127,7 @@ class App extends React.Component {
               <Form.Label>Goodreads Page Count</Form.Label>
               <Form.Control
                 type="number"
-                defaultValue={this.state.goodreadsPageCount}
+                // defaultValue={this.state.goodreadsPageCount}
                 value={this.state.goodreadsPageCount}
                 onChange={this.handleChange}
               />
