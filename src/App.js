@@ -7,8 +7,6 @@ import buildInfo from './buildInfo';
 import './App.css';
 
 // Required features
-// TODO: Store state to local storage
-// TODO: Read state from local storage on startup
 // TODO: Copy calculated value to clipboard
 // TODO: Add favicon
 
@@ -21,12 +19,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      goodreadsPageCount: 0,
-      actualPageCount: 0,
-      currentPage: 0,
-      adjustedPage: 0
+      goodreadsPageCount: localStorage.getItem('goodreadsPageCount') || 0,
+      actualPageCount: localStorage.getItem('actualPageCount') || 0,
+      currentPage: localStorage.getItem('currentPage') || 0,
+      adjustedPage: localStorage.getItem('adjustedPage') || 0
     };
-
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -40,6 +37,8 @@ class App extends React.Component {
     console.log(`Build: ${buildInfo.buildVersion} - ${buildDate.toString()}`);
     console.log('(build information generated using my react-build-info package: https://www.npmjs.com/package/react-build-info)');
     console.log(dashes);
+
+    this.calculateAdjustedPage();
   }
 
   calculateAdjustedPage() {
@@ -70,9 +69,10 @@ class App extends React.Component {
     console.log(`Input field value changed (${event.target.id} => ${event.target.value})`);
     // write the current field value to state
     this.setState({ [event.target.id]: parseInt(event.target.value) },
-      // Wait until saving state completes
       () => {
-        // console.table(this.state);
+        // When saving state completes,
+        // write the updated value to local storage
+        localStorage.setItem([event.target.id], parseInt(event.target.value));
         // then update the page number
         this.calculateAdjustedPage();
       });
