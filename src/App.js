@@ -38,7 +38,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar collapseOnSelect expand="lg" bg="light">
+        <Navbar bg="light">
           <Navbar.Brand>
             <div className="head-text">
               Goodreads Page Converter
@@ -47,7 +47,7 @@ class App extends React.Component {
         </Navbar>
 
         <div className="page-body">
-          <p>Goodreads is a great application for tracking your reading activity, but its page count for some books is often inaccurate (flat out wrong or including apendices and notes in the page count). In order to get Goodreads to display an acurate completion percentage, you must adjust your current page read to accomodate. This application does it for you.</p>
+          <p>Goodreads is a great application for tracking your reading activity, but its page count for some books is often inaccurate (flat out wrong or including appendices and notes in the page count). In order to get Goodreads to display an accurate completion percentage, you must adjust your current page read to accommodate. This application does it for you.</p>
           <form>
             <label>
               Current Page:
