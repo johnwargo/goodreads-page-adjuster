@@ -15,3 +15,5 @@ For many of the technical, business, or history books (and the like) that have a
 With that in mind, I created this simple app to allow me to easily calculate an adjusted page number based on the actual length of the book's readable content. You enter the current page you're on plus the actual total page count (subtracting the stuff at the end you'll never read) and the Goodreads page count. The app then calculates an adjusted page count that scales your current page based on the total (goodreads) page count so the percentage progress calculation Goodreads does will be correct.
 
 ![Application Screen Shot](images/figure-01.png)
+
+Enter the values, then click the Copy Result button. Switch to Goodreads and paste in the copied value as your current page number (adjusted).
