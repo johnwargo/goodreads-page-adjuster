@@ -6,13 +6,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import buildInfo from './buildInfo';
 import './App.css';
 
+// Required 
+// TODO: Calculate page number
+// TODO: Copy calculated value to clipboard
+// TODO: Store state to local storage
+// TODO: Read state from local storage on startup
+// TODO: Add favicon
+
+// Bonus
+// TODO: Add image to header
+// TODO: Add footer to the bottom of the page
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       goodreadsPageCount: 0,
-      actualPagecount: 0,
+      actualPageCount: 0,
       currentPage: 0,
       adjustedPage: 0
     };
@@ -32,9 +42,34 @@ class App extends React.Component {
     console.log(dashes);
   }
 
+  calculateAdjustedPage() {
+    console.log("Calculating adjusted page");
+    // Do we actually have valid pages and page counts?
+    if (
+      this.state.goodreadsPageCount > 0 &&
+      this.state.actualPageCount > 0 &&
+      this.state.currentPage > 0) {
+      // Get our adjustment ratio
+      let tempRatio = this.state.actualPageCount / this.state.goodreadsPageCount;
+      console.log(`Ratio: ${tempRatio}`);
+      // Make it positive or negative depending on which value is larger
+      let multiplier = this.state.currentPage < this.state.goodreadsPageCount ? tempRatio : -tempRatio;
+      console.log(`Multiplier: ${multiplier}`);
+      // Add the adjustment to the page count
+      let adjustedPage = Math.floor(this.state.currentPage + (this.state.currentPage * multiplier));
+      this.setState({ adjustedPage });
+    } else {
+      console.log("Nothing to see here, move along");
+    }
+  }
+
   handleChange(event) {
-    console.dir(event);
-    this.setState({ value: event.target.value });
+    console.log(`Input field value changed (${event.target.id} => ${event.target.value})`);
+    this.setState({ [event.target.id]: parseInt(event.target.value) },
+      () => {
+        console.table(this.state);
+        this.calculateAdjustedPage();
+      });
   }
 
   handleCopy(event) {
@@ -70,7 +105,7 @@ class App extends React.Component {
               <Form.Label>Book (actual) Page Count</Form.Label>
               <Form.Control
                 type="number"
-                defaultValue={this.state.actualPagecount}
+                defaultValue={this.state.actualPageCount}
                 onChange={this.handleChange}
               />
             </Form.Group>
@@ -84,7 +119,7 @@ class App extends React.Component {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="goodreadsPage">
+            <Form.Group className="mb-3" controlId="adjustedPage">
               <Form.Label>Goodreads Page Number (adjusted)</Form.Label>
               <Form.Control
                 readOnly
