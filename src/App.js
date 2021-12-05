@@ -6,16 +6,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import buildInfo from './buildInfo';
 import './App.css';
 
-// Required 
-// TODO: Calculate page number
-// TODO: Copy calculated value to clipboard
+// Required features
 // TODO: Store state to local storage
 // TODO: Read state from local storage on startup
+// TODO: Copy calculated value to clipboard
 // TODO: Add favicon
 
 // Bonus
 // TODO: Add image to header
 // TODO: Add footer to the bottom of the page
+
 class App extends React.Component {
 
   constructor(props) {
@@ -44,30 +44,36 @@ class App extends React.Component {
 
   calculateAdjustedPage() {
     console.log("Calculating adjusted page");
-    // Do we actually have valid pages and page counts?
+    let adjustedPage;
     if (
+      // Do we actually have valid page and pages values?
       this.state.goodreadsPageCount > 0 &&
       this.state.actualPageCount > 0 &&
       this.state.currentPage > 0) {
-      // Get our adjustment ratio
-      let tempRatio = this.state.actualPageCount / this.state.goodreadsPageCount;
-      console.log(`Ratio: ${tempRatio}`);
-      // Make it positive or negative depending on which value is larger
-      let multiplier = this.state.currentPage < this.state.goodreadsPageCount ? tempRatio : -tempRatio;
-      console.log(`Multiplier: ${multiplier}`);
-      // Add the adjustment to the page count
-      let adjustedPage = Math.floor(this.state.currentPage + (this.state.currentPage * multiplier));
+      // If the two page counts are the same, ...
+      if (this.state.goodreadsPageCount === this.state.actualPageCount) {
+        // then we have nothing to do, just use the current page as the page number
+        adjustedPage = this.state.currentPage;
+      } else {
+        // otherwise, we need to adjust the current page        
+        let theRatio = 1 / (this.state.actualPageCount / this.state.goodreadsPageCount);
+        console.log(`Ratio: ${theRatio}`);
+        adjustedPage = Math.floor(this.state.currentPage * theRatio);
+      }
       this.setState({ adjustedPage });
     } else {
-      console.log("Nothing to see here, move along");
+      console.log("Missing required page values");
     }
   }
 
   handleChange(event) {
     console.log(`Input field value changed (${event.target.id} => ${event.target.value})`);
+    // write the current field value to state
     this.setState({ [event.target.id]: parseInt(event.target.value) },
+      // Wait until saving state completes
       () => {
-        console.table(this.state);
+        // console.table(this.state);
+        // then update the page number
         this.calculateAdjustedPage();
       });
   }
@@ -131,39 +137,8 @@ class App extends React.Component {
             <Button variant="primary" onClick={this.handleCopy}>
               Copy Result
             </Button>
-
-            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group> */}
-
           </Form>
-
-
-          {/* <form>
-            <label>
-              Current Page:
-              <input type="text" id="currentPage" value={this.state.currentPage} onChange={this.handleChange} />
-            </label>
-            <br /><br />
-            <label>
-              Actual Page Count:
-              <input type="text" id="actualPage" value={this.state.actualPagecount} onChange={this.handleChange} />
-            </label>
-            <br /><br />
-            <label>
-              Goodreads Page Count:
-              <input type="text" value={this.state.goodreadsPageCount} onChange={this.handleChange} />
-            </label>
-            <br /><br />
-            <label>
-              Adjusted Page:
-
-            </label>
-            <br /><br />
-          </form> */}
-          {/* <footer>By John M. Wargo</footer> */}
         </div>
-
       </div >
     );
   }
