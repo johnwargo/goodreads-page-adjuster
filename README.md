@@ -1,4 +1,7 @@
 ![Application Icon](public/icon/android-icon-144x144.png)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e16c455-53b3-4138-9626-6a9be167711e/deploy-status)](https://app.netlify.com/sites/goodreads-page-adjuster/deploys)
+
 # Goodreads Page Adjuster
 
 [Goodreads](https://www.goodreads.com/) is a great site for tracking the books you read, want to read, and have read. Its also useful for  following friends to see what they're reading.
