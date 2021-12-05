@@ -8,7 +8,11 @@ import './App.css';
 
 // Required features
 // TODO: Copy calculated value to clipboard
+// TODO: Update page content
 // TODO: Add favicon
+// TODO: Make installable
+// TODO: Update readme.md with complete story and screen shot(s)
+// TODO: Make repo public
 
 // Bonus
 // TODO: Add image to header
@@ -42,7 +46,7 @@ class App extends React.Component {
   }
 
   calculateAdjustedPage() {
-    console.log("Calculating adjusted page");
+    // console.log("Calculating adjusted page");
     let adjustedPage;
     if (
       // Do we actually have valid page and pages values?
@@ -56,17 +60,17 @@ class App extends React.Component {
       } else {
         // otherwise, we need to adjust the current page        
         let theRatio = 1 / (this.state.actualPageCount / this.state.goodreadsPageCount);
-        console.log(`Ratio: ${theRatio}`);
         adjustedPage = Math.floor(this.state.currentPage * theRatio);
       }
       this.setState({ adjustedPage });
-    } else {
-      console.log("Missing required page values");
-    }
+    } 
+    // else {
+    //   console.log("Missing required page values");
+    // }
   }
 
   handleChange(event) {
-    console.log(`Input field value changed (${event.target.id} => ${event.target.value})`);
+    // console.log(`Input field value changed (${event.target.id} => ${event.target.value})`);
     // write the current field value to state
     this.setState({ [event.target.id]: parseInt(event.target.value) },
       () => {
