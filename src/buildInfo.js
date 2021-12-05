@@ -1,4 +1,4 @@
 module.exports = {
-  buildVersion: "0.0.1",
-  buildDate: 1638577899235,
+  buildVersion: "0.0.2",
+  buildDate: 1638721372343,
 }
