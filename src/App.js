@@ -9,9 +9,6 @@ import './App.css';
 // Required features
 // TODO: Add image to header
 // TODO: Check that the current page isn't greater than the actual page count
-// TODO: Update page content
-// TODO: Make installable
-// TODO: Update readme.md with complete story and screen shot(s)
 // TODO: Make repo public
 
 // Bonus
