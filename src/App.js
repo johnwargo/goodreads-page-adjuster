@@ -72,7 +72,7 @@ class App extends React.Component {
   handleChange(event) {
     // console.log(`Input field value changed (${event.target.id} => ${event.target.value})`);
     // write the current field value to state
-    let newVal = Math.abs(parseInt(event.target.value));
+    let newVal = parseInt(event.target.value);
     this.setState({ [event.target.id]: newVal },
       () => {
         // When saving state completes,
@@ -116,12 +116,13 @@ class App extends React.Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-
+            
             <Form.Group className="mb-3" controlId="actualPageCount">
               <Form.Label>Book (actual) Page Count</Form.Label>
               <Form.Control
                 type="number"
                 // defaultValue={this.state.actualPageCount}
+                min="0"
                 value={this.state.actualPageCount}
                 onChange={this.handleChange}
               />
@@ -132,6 +133,7 @@ class App extends React.Component {
               <Form.Control
                 type="number"
                 // defaultValue={this.state.goodreadsPageCount}
+                min="0"
                 value={this.state.goodreadsPageCount}
                 onChange={this.handleChange}
               />
