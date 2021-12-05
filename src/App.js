@@ -7,6 +7,7 @@ import buildInfo from './buildInfo';
 import './App.css';
 
 // Required features
+// TODO: Add image to header
 // TODO: Check that the current page isn't greater than the actual page count
 // TODO: Update page content
 // TODO: Make installable
@@ -14,7 +15,6 @@ import './App.css';
 // TODO: Make repo public
 
 // Bonus
-// TODO: Add image to header
 // TODO: Add footer to the bottom of the page
 
 class App extends React.Component {
