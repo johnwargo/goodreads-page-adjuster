@@ -7,7 +7,6 @@ import buildInfo from './buildInfo';
 import './App.css';
 
 // Required features
-// TODO: Copy calculated value to clipboard
 // TODO: Check that the current page isn't greater than the actual page count
 // TODO: Update page content
 // TODO: Make installable
@@ -29,6 +28,7 @@ class App extends React.Component {
       adjustedPage: localStorage.getItem('adjustedPage') || 0
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleCopy = this.handleCopy.bind(this);
   }
 
   componentDidMount() {
@@ -52,7 +52,7 @@ class App extends React.Component {
       // Do we actually have valid page and pages values?
       this.state.goodreadsPageCount > 0 &&
       this.state.actualPageCount > 0 &&
-      this.state.currentPage > 0) {
+      this.state.currentPage > -1) {
       // If the two page counts are the same, ...
       if (this.state.goodreadsPageCount === this.state.actualPageCount) {
         // then we have nothing to do, just use the current page as the page number
@@ -86,6 +86,9 @@ class App extends React.Component {
   handleCopy(event) {
     // Copies the calculated page number to the clipboard
     console.log("Copy button clicked");
+    if (this.state.adjustedPage > 0) {
+      navigator.clipboard.writeText(this.state.adjustedPage.toString());
+    }
   }
 
   render() {
@@ -108,6 +111,7 @@ class App extends React.Component {
               <Form.Control
                 type="number"
                 // defaultValue={this.state.currentPage}
+                min="0"
                 value={this.state.currentPage}
                 onChange={this.handleChange}
               />
@@ -142,7 +146,10 @@ class App extends React.Component {
               />
             </Form.Group>
 
-            <Button variant="primary" onClick={this.handleCopy}>
+            <Button
+              variant="primary"
+              disabled={!this.state.adjustedPage > 0}
+              onClick={this.handleCopy}>
               Copy Result
             </Button>
           </Form>
