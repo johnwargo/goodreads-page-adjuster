@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Navbar from 'react-bootstrap/Navbar';
 
+import Swal from 'sweetalert2';
+
 import buildInfo from './buildInfo';
 import './App.css';
 
@@ -85,6 +87,11 @@ class App extends React.Component {
     console.log("Copy button clicked");
     if (this.state.adjustedPage > 0) {
       navigator.clipboard.writeText(this.state.adjustedPage.toString());
+      Swal.fire({
+        icon: 'information',
+        title: 'Page Number Copy',
+        text: `Copied Adjusted Page number (${this.state.adjustedPage}) to clipboard.`
+      })
     }
   }
 
@@ -113,7 +120,7 @@ class App extends React.Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            
+
             <Form.Group className="mb-3" controlId="actualPageCount">
               <Form.Label>Book (actual) Page Count</Form.Label>
               <Form.Control
