@@ -4,6 +4,8 @@
 
 # Goodreads Page Adjuster
 
+Deployed to Netlify at https://goodreads-page-adjuster.netlify.app/.
+
 [Goodreads](https://www.goodreads.com/) is a great site for tracking the books you read, want to read, and have read. Its also useful for  following friends to see what they're reading.
 
 One of the things you can do in Goodreads when you're reading a book is track your progress in the app. You can indicate which page you're on and Goodreads shows you (and your friends) what percentage of the book you've completed. Unfortunately, a lot of books on Goodreads have an incorrect total page count recorded - wo when you update your current page in the app, the percentage will be incorrect.
