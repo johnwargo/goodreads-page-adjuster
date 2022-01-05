@@ -90,7 +90,8 @@ class App extends React.Component {
       Swal.fire({
         icon: 'information',
         title: 'Page Number Copy',
-        text: `Copied Adjusted Page number (${this.state.adjustedPage}) to clipboard.`
+        text: `Copied Adjusted Page number (${this.state.adjustedPage}) to clipboard.`,
+        timer: 1000
       })
     }
   }
