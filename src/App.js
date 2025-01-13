@@ -1,8 +1,16 @@
+/**********************************************************
+ * Goodreads Page Adjuster
+ * 
+ * By John M. Wargo
+ * https://github.com/johnwargo/goodreads-page-adjuster
+ * 
+ **********************************************************/
+
 import React from 'react';
 import Swal from 'sweetalert2';
-// local modules
 import buildInfo from './buildInfo';
 
+// TODO: update screenshot in raadme
 // TODO: Validate actual page count is not greater than total page count
 // TODO: convert SWAL2 to Toastify https://www.npmjs.com/package/react-toastify
 
