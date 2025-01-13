@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import buildInfo from './buildInfo';
 
 // TODO: Validate actual page count is not greater than total page count
-// TODO: convert SWAL2 to Toastify
+// TODO: convert SWAL2 to Toastify https://www.npmjs.com/package/react-toastify
 
 let dashes = '='.repeat(80);
 let buildDate = new Date(buildInfo.buildDate);
