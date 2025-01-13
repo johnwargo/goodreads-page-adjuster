@@ -8,13 +8,7 @@ import Swal from 'sweetalert2';
 import buildInfo from './buildInfo';
 import './App.css';
 
-// Required features
-// TODO: Add image to header
-// TODO: Check that the current page isn't greater than the actual page count
-// TODO: Make repo public
-
-// Bonus
-// TODO: Add footer to the bottom of the page
+// TODO: Validate actual page count is not greater than total page count
 
 class App extends React.Component {
 
@@ -45,7 +39,6 @@ class App extends React.Component {
   }
 
   calculateAdjustedPage() {
-    // console.log("Calculating adjusted page");
     let adjustedPage;
     if (
       // Do we actually have valid page and pages values?
@@ -62,28 +55,19 @@ class App extends React.Component {
         adjustedPage = Math.floor(this.state.currentPage * theRatio);
       }
       this.setState({ adjustedPage });
-    }
-    // else {
-    //   console.log("Missing required page values");
-    // }
+    }   
   }
 
   handleChange(event) {
-    // console.log(`Input field value changed (${event.target.id} => ${event.target.value})`);
-    // write the current field value to state
     let newVal = parseInt(event.target.value);
     this.setState({ [event.target.id]: newVal },
       () => {
-        // When saving state completes,
-        // write the updated value to local storage
         localStorage.setItem([event.target.id], newVal);
-        // then update the page number
         this.calculateAdjustedPage();
       });
   }
 
   handleCopy(event) {
-    // Copies the calculated page number to the clipboard
     console.log("Copy button clicked");
     if (this.state.adjustedPage > 0) {
       navigator.clipboard.writeText(this.state.adjustedPage.toString());
@@ -115,7 +99,6 @@ class App extends React.Component {
               <Form.Label>Current Page</Form.Label>
               <Form.Control
                 type="number"
-                // defaultValue={this.state.currentPage}
                 min="0"
                 value={this.state.currentPage}
                 onChange={this.handleChange}
@@ -126,7 +109,6 @@ class App extends React.Component {
               <Form.Label>Book (actual) Page Count</Form.Label>
               <Form.Control
                 type="number"
-                // defaultValue={this.state.actualPageCount}
                 min="0"
                 value={this.state.actualPageCount}
                 onChange={this.handleChange}
@@ -137,7 +119,6 @@ class App extends React.Component {
               <Form.Label>Goodreads Page Count</Form.Label>
               <Form.Control
                 type="number"
-                // defaultValue={this.state.goodreadsPageCount}
                 min="0"
                 value={this.state.goodreadsPageCount}
                 onChange={this.handleChange}
