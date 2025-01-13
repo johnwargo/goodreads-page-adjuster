@@ -78,7 +78,7 @@ class App extends React.Component {
         icon: 'information',
         title: 'Page Number Copy',
         text: `Copied Adjusted Page number (${this.state.adjustedPage}) to clipboard.`,
-        timer: 1000
+        timer: 2000
       })
     }
   }
@@ -110,7 +110,7 @@ class App extends React.Component {
         <footer>
           <hr />
           <p>
-            <small><a href="" target="_blank">John M. Wargo</a> | <a href="https://johnwargo.com/posts/2022/accurately-calculating-progress-in-goodreads/" target="_blank">About</a> | <a href="https://github.com/johnwargo/goodreads-page-adjuster" target="_blank">Source Code</a></small>
+            <small><a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | <a href="https://johnwargo.com/posts/2022/accurately-calculating-progress-in-goodreads/" target="_blank" rel="noopener noreferrer">About</a> | <a href="https://github.com/johnwargo/goodreads-page-adjuster" target="_blank" rel="noopener noreferrer">Source Code</a></small>
           </p>
         </footer>
       </div>
