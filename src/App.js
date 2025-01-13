@@ -27,8 +27,7 @@ class App extends React.Component {
     console.log(dashes);
     console.log('Goodreads Page Adjuster');
     console.log('By John M. Wargo (john@johnwargo.com)');
-    console.log(`Build: ${buildInfo.buildVersion} - ${buildDate.toString()}`);
-    // console.log('(build information generated using my react-build-info package: https://www.npmjs.com/package/react-build-info)');
+    console.log(`Build: ${buildInfo.buildVersion} - ${buildDate.toString()}`);    
     console.log(dashes);
 
     this.calculateAdjustedPage();
