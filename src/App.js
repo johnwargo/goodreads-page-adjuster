@@ -101,7 +101,7 @@ class App extends React.Component {
               <input type="number" id="pageCountGoodreads" name="pageCountGoodreads" value={this.state.pageCountGoodreads}
                 onChange={this.handleChange} size="20" />
               <label for="adjustedPage">Goodreads Adjusted Page Number</label>
-              <input type="number" readonly id="adjustedPage" name="adjustedPage" value={this.state.adjustedPage} size="20" />
+              <input type="text" readonly id="adjustedPage" name="adjustedPage" value={this.state.adjustedPage} size="20" />
               <br />
               <button disabled={!this.state.adjustedPage > 0} onClick={this.handleCopy}>Copy Result</button>
             </form>
