@@ -20,3 +20,8 @@ With that in mind, I created this simple app to allow me to easily calculate an 
 ![Application Screen Shot](images/figure-01.png)
 
 Enter the values, then click the Copy Result button. Switch to Goodreads and paste in the copied value as your current page number (adjusted).
+
+---
+
+App icon by <a href="https://www.flaticon.com/authors/zlatko-najdenovski" title="Zlatko Najdenovski">Zlatko Najdenovski</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.
+  
