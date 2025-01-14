@@ -92,13 +92,11 @@ class App extends React.Component {
               <label htmlFor="adjustedPage">Goodreads Adjusted Page Number</label>
               <input type="text" readOnly id="adjustedPage" name="adjustedPage" value={this.state.adjustedPage} size="20" />
               <button disabled={!this.state.adjustedPage > 0} onClick={this.handleCopy}>Copy Result</button>
+
+              <p><small><a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | <a href="https://johnwargo.com/posts/2022/accurately-calculating-progress-in-goodreads/" target="_blank" rel="noopener noreferrer">About</a> | <a href="https://github.com/johnwargo/goodreads-page-adjuster" target="_blank" rel="noopener noreferrer">Source Code</a></small></p>
             </form>
           </section>
-        </main>
-        <footer>
-          <hr />
-          <p><small><a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | <a href="https://johnwargo.com/posts/2022/accurately-calculating-progress-in-goodreads/" target="_blank" rel="noopener noreferrer">About</a> | <a href="https://github.com/johnwargo/goodreads-page-adjuster" target="_blank" rel="noopener noreferrer">Source Code</a></small></p>
-        </footer>
+        </main>        
       </div>
     );
   }
