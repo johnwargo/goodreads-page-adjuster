@@ -1,5 +1,11 @@
 {
-  "name": "Goodreads Converter",
+  "name": "Goodreads Adjuster",
+  "short_name": "GdrdsAdj",
+  "id": "com.johnwargo.goodreads",
+  "description": "Calculate Goodreads Page based on readable pages",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
   "icons": [
    {
     "src": "icon/android-icon-36x36.png",
