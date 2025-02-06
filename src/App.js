@@ -11,9 +11,6 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 
 import buildInfo from './buildInfo';
 
-// TODO: update screenshot in raadme
-// TODO: convert SWAL2 to Toastify https://www.npmjs.com/package/react-toastify
-
 const theForbiddenWord = "for";
 const notify = () => toast("Page number copied");
 
@@ -80,11 +77,20 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <header>
+          <nav>
+            <h1>Goodreads Page Adjuster</h1>
+            <ul>
+              <li><a href="https://johnwargo.com/posts/2022/accurately-calculating-progress-in-goodreads/"
+                target="_blank" rel="noopener noreferrer">Blog</a></li>
+              <li><a href="https://github.com/johnwargo/goodreads-page-adjuster" target="_blank" rel="noopener noreferrer">Code</a></li>
+            </ul>
+          </nav>
+        </header>
         <main>
           <section>
-            <h1>Goodreads Page Adjuster</h1>
+            <p>Goodreads is an excellent web application {theForbiddenWord} tracking book reading activity. However, its page count is often inaccurate (flat out wrong from including notes, appendices, and other stuff in the page count). To get Goodreads to display an accurate completion percentage, you must adjust your current page read to accommodate; this application does it {theForbiddenWord} you.</p>
             <form>
-              <p>Goodreads is an excellent web application {theForbiddenWord} tracking book reading activity. However, its page count is often inaccurate (flat out wrong from including notes, appendices, and other stuff in the page count). To get Goodreads to display an accurate completion percentage, you must adjust your current page read to accommodate; this application does it {theForbiddenWord} you.</p>
               <label htmlFor="currentPage">Current Page</label>
               <input type="number" id="currentPage" name="currentPage" value={this.state.currentPage}
                 onChange={this.handleChange} size="20" />
@@ -97,23 +103,15 @@ class App extends React.Component {
               <label htmlFor="adjustedPage">Goodreads Adjusted Page Number</label>
               <input type="text" readOnly id="adjustedPage" name="adjustedPage" value={this.state.adjustedPage} size="20" />
               <button disabled={!this.state.adjustedPage > 0} onClick={this.handleCopy}>Copy Result</button>
-              <ToastContainer
-                position="bottom-center"
-                autoClose={1000}
-                hideProgressBar={true}
-                newestOnTop={true}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-                transition={Slide}
-              />
-              <p><small><a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | <a href="https://johnwargo.com/posts/2022/accurately-calculating-progress-in-goodreads/" target="_blank" rel="noopener noreferrer">About</a> | <a href="https://github.com/johnwargo/goodreads-page-adjuster" target="_blank" rel="noopener noreferrer">Source Code</a></small></p>
+              <ToastContainer position="top-center" autoClose={1000} hideProgressBar={true} newestOnTop={true} closeOnClick={false} rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Slide} />             
             </form>
           </section>
         </main>
+        <footer>
+          <hr />
+              <p><small>By <a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | Like this? <a
+                  href="https://www.buymeacoffee.com/johnwargo" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> | Styling by <a href="https://andybrewer.github.io/mvp/" target="_blank" rel="noopener noreferrer">MVP.css</a> | Project by <a href="https://html5boilerplate.com/" target="_blank" rel="noopener noreferrer">HTML Boilerplate</a> | Hosted by <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a></small></p>
+        </footer>
       </div>
     );
   }
