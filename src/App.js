@@ -110,7 +110,7 @@ class App extends React.Component {
         <footer>
           <hr />
               <p><small>By <a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | Like this? <a
-                  href="https://www.buymeacoffee.com/johnwargo" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> | Styling by <a href="https://andybrewer.github.io/mvp/" target="_blank" rel="noopener noreferrer">MVP.css</a> | Project by <a href="https://html5boilerplate.com/" target="_blank" rel="noopener noreferrer">HTML Boilerplate</a> | Hosted by <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a></small></p>
+                  href="https://www.buymeacoffee.com/johnwargo" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> | Styling by <a href="https://andybrewer.github.io/mvp/" target="_blank" rel="noopener noreferrer">MVP.css</a> | Hosted by <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a></small></p>
         </footer>
       </div>
     );
