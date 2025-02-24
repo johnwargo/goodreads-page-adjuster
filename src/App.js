@@ -42,14 +42,23 @@ class App extends React.Component {
   }
 
   calculateAdjustedPage() {
-    let adjustedPage = this.state.currentPage;
-    // Do we actually have valid page and pages values?
-    if (this.state.pageCountGoodreads > 0 && this.state.pageCountActual > 0 && this.state.currentPage > -1) {
-      // are the two page counts good?
-      if (this.state.pageCountActual < this.state.pageCountGoodreads) {
-        // calculate the ratio
-        let theRatio = 1 / (this.state.pageCountActual / this.state.pageCountGoodreads);
-        adjustedPage = Math.floor(this.state.currentPage * theRatio);
+    // get all the values we need
+    let currentPage = this.state.currentPage;
+    let adjustedPage = currentPage;
+    let pageCountGoodreads = this.state.pageCountGoodreads;
+    let pageCountActual = this.state.pageCountActual;
+    // Make sure we have good data to work with
+    if (pageCountGoodreads > 0 && pageCountActual > 0 && currentPage > -1) {
+      // Can't have more than the actual page count
+      if (currentPage > pageCountActual) return pageCountActual;
+
+      let theRatio;
+      if (pageCountActual < pageCountGoodreads) {
+        theRatio = 1 / (pageCountActual / pageCountGoodreads);
+        adjustedPage = Math.floor(currentPage * theRatio);
+      } else {
+        theRatio = currentPage / pageCountActual;
+        adjustedPage = Math.floor(theRatio * pageCountGoodreads);
       }
     }
     return adjustedPage;
@@ -103,14 +112,14 @@ class App extends React.Component {
               <label htmlFor="adjustedPage">Goodreads Adjusted Page Number</label>
               <input type="text" readOnly id="adjustedPage" name="adjustedPage" value={this.state.adjustedPage} size="20" />
               <button disabled={!this.state.adjustedPage > 0} onClick={this.handleCopy}>Copy Result</button>
-              <ToastContainer position="top-center" autoClose={1000} hideProgressBar={true} newestOnTop={true} closeOnClick={false} rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Slide} />             
+              <ToastContainer position="top-center" autoClose={1000} hideProgressBar={true} newestOnTop={true} closeOnClick={false} rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Slide} />
             </form>
           </section>
         </main>
         <footer>
           <hr />
-              <p><small>By <a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | Like this? <a
-                  href="https://www.buymeacoffee.com/johnwargo" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> | Styling by <a href="https://andybrewer.github.io/mvp/" target="_blank" rel="noopener noreferrer">MVP.css</a> | Hosted by <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a></small></p>
+          <p><small>By <a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | Like this? <a
+            href="https://www.buymeacoffee.com/johnwargo" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> | Styling by <a href="https://andybrewer.github.io/mvp/" target="_blank" rel="noopener noreferrer">MVP.css</a> | Hosted by <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a></small></p>
         </footer>
       </div>
     );
