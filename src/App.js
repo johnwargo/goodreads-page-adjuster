@@ -118,8 +118,9 @@ class App extends React.Component {
         </main>
         <footer>
           <hr />
-          <p><small>By <a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | Like this? <a
+          <p><small> By <a href="https://johnwargo.com" target="_blank" rel="noopener noreferrer">John M. Wargo</a> | Like this? <a
             href="https://www.buymeacoffee.com/johnwargo" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> | Styling by <a href="https://andybrewer.github.io/mvp/" target="_blank" rel="noopener noreferrer">MVP.css</a> | Hosted by <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a></small></p>
+          <p><small>Build: {buildInfo.buildVersion} ({buildDate.toLocaleString()})</small></p>
         </footer>
       </div>
     );
